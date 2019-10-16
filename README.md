@@ -17,7 +17,7 @@ This Kata was written while keeping the boundaries of each of the methods in min
 
 Objectives:
 1. `[name] ------------- initialize---------> [Players]` 
-2. `name, new_frame ([pins, pins]) ----add_frame---> updated_player_board ([[pins, pins], [],[],[],[],[],[],[],[],[],[]])` 
+2. `name, new_frame ([pins, pins]) ----add_frame---> updated_player_board` 
 3. `name? ----get_score-----> ScoreBoard` 
 
     ```
@@ -31,6 +31,7 @@ Objectives:
 ---
 ## add_frame:
 `a frame will be defined as [pin, pin]`
+
 `name, new_frame ----add_frame---> updated_player_board ([frame1, frame2, new_frame, ...empty_frame])` 
 
     name                 ---getplayer_board---->   player_board ([frame1, frame2, .....])
