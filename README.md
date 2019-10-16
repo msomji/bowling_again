@@ -17,8 +17,9 @@ This Kata was written while keeping the boundaries of each of the methods in min
 
 Objectives:
 1. `[name] ------------- initialize---------> [Players]` 
-2. `[name, [pins, pins]] ----add_frame---------> [[pins, pins], [],[],[],[],[],[],[],[],[],[]]` 
+2. `name, new_frame ([pins, pins]) ----add_frame---> updated_player_board ([[pins, pins], [],[],[],[],[],[],[],[],[],[]])` 
 3. `name? ----get_score-----> ScoreBoard` 
+
     ```
     ScoreBoard = [
         {
@@ -29,16 +30,20 @@ Objectives:
     ```
 ---
 ## add_frame:
-` [name, [pins, pins]]   ----add_frame-------->   [[pins, pins], [],[],[],[],[],[],[],[],[],[]]`
+`a frame will be defined as [pin, pin]`
+`name, new_frame ----add_frame---> updated_player_board ([frame1, frame2, new_frame, ...empty_frame])` 
 
-    name                 ---getplayer_board---->   player_board ([[], [],[],[],[],[],[],[],[],[],[]])
-    [pins, pins, ?pins]  ---validate----------->   bool
-    name ,[pins, pins]   ----submit_frame------->   [[pins, pins], [],[],[],[],[],[],[],[],[],[]]
+    name                 ---getplayer_board---->   player_board ([frame1, frame2, .....])
+    frame                ---validate----------->   bool
+    (10th frame can have 3 rolls)
+    
+    name ,frame   ----submit_frame------->   [frame1, frame2, new_frame, .....empty_frame]
 
 ---
 ## getScoreBoard:
-`  player_board ---------getScoreBoard-----> [scoreBoard]` 
+`  name ---------getScoreBoard-----> [scoreBoard]` 
 
+    name                         ---getplayer_board---->   player_board ([frame1, frame1, frame3,....frame10])
     frame                        ---is_strike------------->   bool
     frame                        ---is_spare-------------->   bool
     frame                        ---sum_frame------------>   simpleFrameSum
@@ -48,7 +53,7 @@ Objectives:
 
 ---
 ## validate
-`   [pins, pins, ?pins], current_frame_number ----validate------>   bool`
+`   frame, current_frame_number ----validate------>   bool`
    
     CurrentFrameNumber       -----is_less_than_ten----------------->   bool
     frame                    -----validate_non_last_frame------>   bool
